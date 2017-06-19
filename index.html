@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    </head>
+</html>
+
+<body>
+  <script>
+    var start = performance.now()
+
+    function pad(s) {
+      return s.toString().padStart(2, "0")
+    }
+
+    function clock() {
+      var diff = performance.now() - start
+
+      var hourMs   = 1000 * 60 * 60
+      var minuteMs = 1000 * 60
+      var secondMs = 1000
+
+      var hour   = parseInt(diff / hourMs)
+      var minute = parseInt(diff / minuteMs) % 60
+      var second = parseInt(diff / secondMs) % 60
+
+      document.title = hour + ":" + pad(minute) + ":" + pad(second)
+    }
+
+    setInterval(clock, 100)
+  </script>
+</body>
